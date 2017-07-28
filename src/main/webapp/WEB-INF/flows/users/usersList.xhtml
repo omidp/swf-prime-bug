@@ -1,0 +1,33 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+	  			template="/WEB-INF/templates/layout.xhtml"
+				>
+
+<ui:define name="content">
+	
+	<h:form>
+            <p:dataTable var="_item" value="#{projectActionBean.users}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{_item.id}" />
+                </p:column>
+ 
+                <p:column headerText="Name">
+                    <h:outputText value="#{_item.name}" />
+                </p:column>
+ 
+ 
+                <p:column>
+                    <p:commandButton icon="ui-icon-search" value="Select" actionListener="#{projectActionBean.selectUserFromDialog(_item)}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+	
+	
+	
+</ui:define>
+</ui:composition>

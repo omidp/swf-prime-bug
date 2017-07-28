@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+		
+	
+	lang="fa">
+<f:view contentType="text/html" encoding="UTF-8" locale="fa">
+	<c:set var="_ctx" value="#{request.contextPath}" />
+
+	<ui:insert name="metadata" />
+
+	<h:head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title><h:outputText value="#{msgs['Applicatoin_Name']}" /></title>
+		
+		<h:outputScript library="primefaces" name="jquery/jquery.js"
+			target="head" />
+		<h:outputScript library="primefaces" name="jquery/jquery-plugins.js"
+			target="head" />
+		
+
+
+		<ui:insert name="head" />
+
+	</h:head>
+	<h:body>
+		
+
+		
+
+		<div class="wrapper">
+		
+			
+			<div style="margin-right: 350px;margin-left: 50px;margin-top: 60px;">
+				<p:messages id="uiMessages" closable="true" styleClass="msgclz" globalOnly="false"></p:messages>
+				<ui:insert name="content"></ui:insert>
+			</div>
+			<div class="push">
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+		<div class="footer">
+		</div>
+		
+		<script>
+			jQuery(document).ready(function(){
+				
+				jQuery(".ui-chkbox-all").hide();
+
+				var msg = jQuery(".ui-messages-info-summary").html();
+				if(msg == "")
+					jQuery("#uiMessages").hide();
+				
+			});
+		</script>
+
+		
+	</h:body>
+
+</f:view>
+</html>

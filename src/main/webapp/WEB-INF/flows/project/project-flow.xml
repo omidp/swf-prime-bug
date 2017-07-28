@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow  xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="
+      	http://www.springframework.org/schema/webflow
+      	http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd"
+      	parent="parent-flow">
+
+	
+
+	
+	
+	
+	
+	<view-state id="projectList">
+		<attribute name="commit" value="true" type="java.lang.Boolean"></attribute>
+		<var class="org.swf.ProjectActionBean" name="projectActionBean" />
+		<transition on="openUsersDialog">
+			<evaluate expression="projectActionBean.viewUsers()"></evaluate>
+		</transition>
+	</view-state>
+
+	
+	
+	
+	
+	
+	<end-state id="end" commit="true" view="externalRedirect:servletRelative:/project"></end-state>
+	
+	
+	
+	
+		
+</flow>

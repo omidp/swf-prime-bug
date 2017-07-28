@@ -1,0 +1,28 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	    		xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:p="http://primefaces.org/ui"
+	  			template="/WEB-INF/templates/layout.xhtml"
+				>
+
+<ui:define name="content">
+	
+	<fieldset>
+		<legend>#{msgs['Project_List']}</legend>
+		<h:form id="projectSearchForm">
+			<p:growl id="growl" showDetail="true" />
+			<!--  <p:commandButton value="View" icon="ui-icon-extlink" action="openUsersDialog" /> -->
+			<p:commandButton value="Select a User" icon="ui-icon-extlink" actionListener="#{projectActionBean.viewUsers()}" >
+				<p:ajax event="dialogReturn" listener="#{projectActionBean.onUserSelected}" update="growl" />
+			</p:commandButton>
+		</h:form>
+	
+	</fieldset>
+
+	
+	
+	
+</ui:define>
+</ui:composition>
